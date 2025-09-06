@@ -18,7 +18,7 @@ for (let suit of suits) {
 }
 function start() {
   let numberOfPlayers = prompt("How many players?");
-  let cardsDealt = 26 - numberOfPlayers * 8;
+  let cardsDealt = (52 - 8 * numberOfPlayers) / numberOfPlayers);
   switch (numberOfPlayers) {
     case 2:
       dealPlayer();
