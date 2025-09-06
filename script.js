@@ -42,6 +42,8 @@ function start() {
       dealOpponent3();
       dealOpponent4();
       break;
+    default:
+      alert("Error! Error Code 101")
   }
 }
 //clean the section of code before this up
