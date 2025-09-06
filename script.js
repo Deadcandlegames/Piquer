@@ -5,6 +5,7 @@ let opponent3Hand = [];
 let opponent4Hand = [];
 document.getElementById("draw").addEventListener("click", dealPlayer);
 document.getElementById("debug").addEventListener("click", debug);
+document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
 
