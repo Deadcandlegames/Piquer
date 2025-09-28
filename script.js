@@ -22,8 +22,8 @@ for (let suit of suits) {
   }
 }
 function start() {
-  //Add cardsDealtPlayer = null
-  //Add goesFirst = null
+  let cardsDealtPlayer = null
+  let goesFirst = null
   let numberOfPlayers = prompt("How many players?");
   let cardsDealt = (52 - 8 * numberOfPlayers) / numberOfPlayers);
   if (numberOfPlayers === 3) {
@@ -32,10 +32,11 @@ function start() {
       cardsDealtPlayer = cardsDealt + 1
     } else {
       cardsDealtPlayer = cardsDealt
-      //Player # (random just not the user) get one more card
+      //Add player # (random just not the user) get one more card
     }
+  } else {
+    cardsDealtPlayer = cardsDealt
   }
-  //Add cardsDealtPlayer = cardsDealt
   //Add goesFirst = true or false with a 100/numberOfPlayers chance of getting true
   switch (numberOfPlayers) {
     case 2:
