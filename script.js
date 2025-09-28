@@ -67,6 +67,8 @@ function start() {
 //clean the section of code before this up
 
 function dealPlayer() {
+  //Change all of the "cardsDealt" to "cardsDealtPlayer" in this function
+  //WARNING WARNING WARNING the cardsDealt and cardsDealtPlayer variables might not transfer over into the dealPlayer or dealOpponent functions
   for (let i = 1; i <= cardsDealt; i++) {
     let a = Math.floor(Math.random() * deck.length);
     let arrayName = deck.splice(a, 1)[0];
