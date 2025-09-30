@@ -8,6 +8,10 @@ let opponent3Hand = [];
 let opponent3LowerCards = [];
 let opponent4Hand = [];
 let opponent4LowerCards = [];
+let cardsDealt;
+let cardsDealtPlayer;
+let goesFirst;
+let numberOfPlayers;
 document.getElementById("debug").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
@@ -22,8 +26,22 @@ for (let suit of suits) {
   }
 }
 function start() {
-  let numberOfPlayers = prompt("How many players?");
-  let cardsDealt = (52 - 8 * numberOfPlayers) / numberOfPlayers);
+  cardsDealtPlayer = null
+  goesFirst = null
+  numberOfPlayers = prompt("How many players?");
+  cardsDealt = Math.floor((52 - 8 * numberOfPlayers) / numberOfPlayers);
+  if (numberOfPlayers === 3) {
+    goesFirst = confirm("Would you like to go first?")
+    if (goesFirst) {
+      cardsDealtPlayer = cardsDealt + 1
+    } else {
+      cardsDealtPlayer = cardsDealt
+      //Add player # (random just not the user) get one more card
+    }
+  } else {
+    cardsDealtPlayer = cardsDealt
+  }
+  //Add goesFirst = true or false with a 100/numberOfPlayers chance of getting true
   switch (numberOfPlayers) {
     case 2:
       dealPlayer();
@@ -54,7 +72,7 @@ function start() {
 //clean the section of code before this up
 
 function dealPlayer() {
-  for (let i = 1; i <= cardsDealt; i++) {
+  for (let i = 1; i <= cardsDealtPlayer; i++) {
     let a = Math.floor(Math.random() * deck.length);
     let arrayName = deck.splice(a, 1)[0];
     hand.push(arrayName);
@@ -96,7 +114,7 @@ function dealOpponent3() {
     let arrayName = deck.splice(a, 1)[0];
     opponent3Hand.push(arrayName);
   }
-    for (let i = 1; i <= 8t; i++) {
+    for (let i = 1; i <= 8; i++) {
     let a = Math.floor(Math.random() * deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent3LowerCards.push(arrayName);
