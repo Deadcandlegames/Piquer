@@ -28,7 +28,7 @@ for (let suit of suits) {
 function start() {
   cardsDealtPlayer = null
   goesFirst = null
-  numberOfPlayers = prompt("How many players?");
+  numberOfPlayers = parseInt(prompt("How many players?"));
   cardsDealt = Math.floor((52 - 8 * numberOfPlayers) / numberOfPlayers);
   if (numberOfPlayers === 3) {
     goesFirst = confirm("Would you like to go first?")
