@@ -30,7 +30,7 @@ function start() {
   goesFirst = null
   numberOfPlayers = prompt("How many players?");
   cardsDealt = Math.floor((52 - 8 * numberOfPlayers) / numberOfPlayers);
-  if (numberOfPlayers == 3) {
+  if (numberOfPlayers === 3) {
     goesFirst = confirm("Would you like to go first?")
     if (goesFirst) {
       cardsDealtPlayer = cardsDealt + 1
