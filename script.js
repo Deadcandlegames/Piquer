@@ -34,7 +34,19 @@ function start() {
       cardsDealtPlayer = cardsDealt + 1;
     } else {
       cardsDealtPlayer = cardsDealt;
-      //Add player # (random just not the user) get one more card
+      let luckyOpponent = randomInRange(1, numberOfPlayers - 1);
+      // Give them +1 card
+      switch (luckyOpponent) {
+        case 1:
+          opponent1Hand.push(deck.pop());
+          break;
+        case 2:
+          opponent2Hand.push(deck.pop());
+          break;
+        case 3:
+          opponent3Hand.push(deck.pop());
+          break;
+      }
     }
   } else {
     cardsDealtPlayer = cardsDealt;
@@ -109,6 +121,9 @@ function dealOpponent3() {
     let arrayName = deck.splice(a, 1)[0];
     opponent3LowerCards.push(arrayName);
   }
+}
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function debug() {
   let debug = prompt("Enter a keyword");
