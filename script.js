@@ -138,13 +138,13 @@ function debug() {
   switch (debug) {
     case hand:
       console.log(hand + "Lower Cards:" + opponent1LowerCards)
-    case op1:
+    case "op1":
       console.log(opponent1Hand + "Lower Cards:" + lowerCards)
-    case op2:
+    case "op2":
       console.log(opponent2Hand + "Lower Cards:" + opponent2LowerCards)
-    case op3:
+    case "op3":
       console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards)
-    case op4:
+    case "op4":
       console.log(opponent4Hand+ "Lower Cards:" + opponent4LowerCards)
     default:
       alert("Error! Error code 201")
