@@ -15,7 +15,7 @@ let numberOfPlayers;
 document.getElementById("debug").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
-const ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"];
+const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 // Build the full deck
 const deck = [];
@@ -28,7 +28,7 @@ for (let suit of suits) {
 function start() {
   cardsDealtPlayer = null
   goesFirst = null
-  numberOfPlayers = prompt("How many players?");
+  numberOfPlayers = parseInt(prompt("How many players?"));
   cardsDealt = Math.floor((52 - 8 * numberOfPlayers) / numberOfPlayers);
   if (numberOfPlayers === 3) {
     goesFirst = confirm("Would you like to go first?")
@@ -134,5 +134,20 @@ function dealOpponent4() {
 }
 //show players images of the hand by converting fullName to a swich statment
 function debug() {
+  let debug = prompt("Enter a keyword")
+  switch (debug) {
+    case hand:
+      console.log(hand + "Lower Cards:" + opponent1LowerCards)
+    case op1:
+      console.log(opponent1Hand + "Lower Cards:" + lowerCards)
+    case op2:
+      console.log(opponent2Hand + "Lower Cards:" + opponent2LowerCards)
+    case op3:
+      console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards)
+    case op4:
+      console.log(opponent4Hand+ "Lower Cards:" + opponent4LowerCards)
+    default:
+      alert("Error! Error code 201")
+  }
   console.log(hand);
 }
