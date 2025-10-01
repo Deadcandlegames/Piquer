@@ -154,5 +154,4 @@ function debug() {
     default:
       alert("Error! Error code 201");
   }
-  console.log(hand);
 }
