@@ -6,8 +6,6 @@ let opponent2Hand = [];
 let opponent2LowerCards = [];
 let opponent3Hand = [];
 let opponent3LowerCards = [];
-let opponent4Hand = [];
-let opponent4LowerCards = [];
 let cardsDealt;
 let cardsDealtPlayer;
 let goesFirst;
@@ -57,13 +55,6 @@ function start() {
       dealOpponent1();
       dealOpponent2();
       dealOpponent3();
-      break;
-    case 5:
-      dealPlayer();
-      dealOpponent1();
-      dealOpponent2();
-      dealOpponent3();
-      dealOpponent4();
       break;
     default:
       alert("Error! Error Code 101");
@@ -119,19 +110,6 @@ function dealOpponent3() {
     opponent3LowerCards.push(arrayName);
   }
 }
-function dealOpponent4() {
-  for (let i = 1; i <= cardsDealt; i++) {
-    let a = Math.floor(Math.random() * deck.length);
-    let arrayName = deck.splice(a, 1)[0];
-    opponent4Hand.push(arrayName);
-  }
-  for (let i = 1; i <= 8; i++) {
-    let a = Math.floor(Math.random() * deck.length);
-    let arrayName = deck.splice(a, 1)[0];
-    opponent4LowerCards.push(arrayName);
-  }
-}
-//show players images of the hand by converting fullName to a swich statment
 function debug() {
   let debug = prompt("Enter a keyword");
   switch (debug) {
