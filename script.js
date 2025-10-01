@@ -125,9 +125,6 @@ function debug() {
     case "op3":
       console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards);
       return;
-    case "op4":
-      console.log(opponent4Hand + "Lower Cards:" + opponent4LowerCards);
-      return;
     default:
       alert("Error! Error code 201");
   }
