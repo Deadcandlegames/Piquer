@@ -26,20 +26,20 @@ for (let suit of suits) {
   }
 }
 function start() {
-  cardsDealtPlayer = null
-  goesFirst = null
+  cardsDealtPlayer = null;
+  goesFirst = null;
   numberOfPlayers = parseInt(prompt("How many players?"));
   cardsDealt = Math.floor((52 - 8 * numberOfPlayers) / numberOfPlayers);
   if (numberOfPlayers === 3) {
-    goesFirst = confirm("Would you like to go first?")
+    goesFirst = confirm("Would you like to go first?");
     if (goesFirst) {
-      cardsDealtPlayer = cardsDealt + 1
+      cardsDealtPlayer = cardsDealt + 1;
     } else {
-      cardsDealtPlayer = cardsDealt
+      cardsDealtPlayer = cardsDealt;
       //Add player # (random just not the user) get one more card
     }
   } else {
-    cardsDealtPlayer = cardsDealt
+    cardsDealtPlayer = cardsDealt;
   }
   //Add goesFirst = true or false with a 100/numberOfPlayers chance of getting true
   switch (numberOfPlayers) {
@@ -66,7 +66,7 @@ function start() {
       dealOpponent4();
       break;
     default:
-      alert("Error! Error Code 101")
+      alert("Error! Error Code 101");
   }
 }
 //clean the section of code before this up
@@ -114,7 +114,7 @@ function dealOpponent3() {
     let arrayName = deck.splice(a, 1)[0];
     opponent3Hand.push(arrayName);
   }
-    for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 8; i++) {
     let a = Math.floor(Math.random() * deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent3LowerCards.push(arrayName);
@@ -126,7 +126,7 @@ function dealOpponent4() {
     let arrayName = deck.splice(a, 1)[0];
     opponent4Hand.push(arrayName);
   }
-    for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 8; i++) {
     let a = Math.floor(Math.random() * deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent4LowerCards.push(arrayName);
@@ -134,20 +134,25 @@ function dealOpponent4() {
 }
 //show players images of the hand by converting fullName to a swich statment
 function debug() {
-  let debug = prompt("Enter a keyword")
+  let debug = prompt("Enter a keyword");
   switch (debug) {
     case "hand":
-      console.log(hand + "Lower Cards:" + opponent1LowerCards)
+      console.log(hand + "Lower Cards:" + opponent1LowerCards);
+      return;
     case "op1":
-      console.log(opponent1Hand + "Lower Cards:" + lowerCards)
+      console.log(opponent1Hand + "Lower Cards:" + lowerCards);
+      return;
     case "op2":
-      console.log(opponent2Hand + "Lower Cards:" + opponent2LowerCards)
+      console.log(opponent2Hand + "Lower Cards:" + opponent2LowerCards);
+      return;
     case "op3":
-      console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards)
+      console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards);
+      return;
     case "op4":
-      console.log(opponent4Hand+ "Lower Cards:" + opponent4LowerCards)
+      console.log(opponent4Hand + "Lower Cards:" + opponent4LowerCards);
+      return;
     default:
-      alert("Error! Error code 201")
+      alert("Error! Error code 201");
   }
   console.log(hand);
 }
