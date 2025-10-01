@@ -136,7 +136,7 @@ function dealOpponent4() {
 function debug() {
   let debug = prompt("Enter a keyword")
   switch (debug) {
-    case hand:
+    case "hand":
       console.log(hand + "Lower Cards:" + opponent1LowerCards)
     case "op1":
       console.log(opponent1Hand + "Lower Cards:" + lowerCards)
