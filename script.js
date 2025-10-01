@@ -82,7 +82,6 @@ function dealPlayer() {
     let arrayName = deck.splice(a, 1)[0];
     lowerCards.push(arrayName);
   }
-  console.log(hand);
 }
 function dealOpponent1() {
   for (let i = 1; i <= cardsDealt; i++) {
