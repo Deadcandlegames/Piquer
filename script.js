@@ -129,16 +129,16 @@ function debug() {
   let debug = prompt("Enter a keyword");
   switch (debug) {
     case "hand":
-      console.log(hand + "Lower Cards:" + opponent1LowerCards);
+      console.log("Hand: ", hand, "Lower Cards: ", lowerCards);
       return;
     case "op1":
-      console.log(opponent1Hand + "Lower Cards:" + lowerCards);
+      console.log("Hand: ", opponent1hand, "Lower Cards: ", opponent1LowerCards);
       return;
     case "op2":
-      console.log(opponent2Hand + "Lower Cards:" + opponent2LowerCards);
+      console.log("Hand: ", opponent2hand, "Lower Cards: ", opponent2LowerCards);
       return;
     case "op3":
-      console.log(opponent3Hand + "Lower Cards:" + opponent3LowerCards);
+      console.log("Hand: ", opponent3hand, "Lower Cards: ", opponent3LowerCards);
       return;
     default:
       alert("Error! Error code 201");
