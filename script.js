@@ -10,6 +10,7 @@ let cardsDealt;
 let cardsDealtPlayer;
 let goesFirst;
 let numberOfPlayers;
+let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
 document.getElementById("debug").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
@@ -121,6 +122,17 @@ function dealOpponent3() {
     let arrayName = deck.splice(a, 1)[0];
     opponent3LowerCards.push(arrayName);
   }
+}
+function playTurn() {
+  if (currentPlayer === 0) {
+    // Player's turn
+    // Add game logic here (update state, check win conditions, etc.)
+  } else {
+    // Opponent's turn (basic AI or random play)
+  }
+  // Check for end of game or next turn/
+  // Advance to next player
+  currentPlayer = (currentPlayer + 1) % numberOfPlayers;
 }
 function randomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
