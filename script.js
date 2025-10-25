@@ -1,11 +1,14 @@
 let hand = [];
 let lowerCards = []; //first 4 are the overcards and the last four are the undercards
 let opponent1Hand = [];
-let opponent1LowerCards = [];
+let opponent1Overcards = [];
+let opponent1Undercards = [];
 let opponent2Hand = [];
-let opponent2LowerCards = [];
+let opponent2Overcards = [];
+let opponent2Undercards = [];
 let opponent3Hand = [];
-let opponent3LowerCards = [];
+let opponent3Overcards = [];
+let opponent3Undercards = [];
 let cardsDealt;
 let cardsDealtPlayer;
 let goesFirst;
