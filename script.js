@@ -9,6 +9,7 @@ let opponent2Undercards = [];
 let opponent3Hand = [];
 let opponent3Overcards = [];
 let opponent3Undercards = [];
+let centerCards = [];
 let cardsDealt;
 let cardsDealtPlayer;
 let goesFirst;
@@ -159,3 +160,176 @@ function debug() {
       alert("Error! Error code 201");
   }
 }
+
+function turn(currentPlayerNumber, centercard, win) {
+     if (!currentPlayerNumber = 1 && win = false) {
+        if (canPlay(hand, centercard)) {
+            playCard(highestPossible(hand, centercard), "hand")
+        } else {
+            if (overcards.length > undercards.length) {
+                playCard(highestPossible(overcards, centercard), "overcards")
+            } else {
+                if (canplay(undercards, centercard, currentPlayerNumber)) {
+                    playCard(undercards[0], "undercards"
+                } else {
+                    hand.push(centercards)
+                }
+            }
+        }
+    } else {
+         //User/Player's turn
+    }
+}
+
+
+function canPlay(groupsOfCards, centerAmount, currentPlayerNumber) {
+    let i = centerAmount
+    switch (currentPlayerNumber) {
+        case 2:
+        //opponent #1
+            switch (groupsOfCards) {
+                case "hand":
+                    // can play
+                    for (i; opponent1Hand.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "overcards":
+                    // can play
+                    for (i; opponent1Overcards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "undercards":
+                    // can play
+                    for (i; opponent1Undercards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+            }
+            break;
+        case 3:
+        //opponent #2
+            switch (groupsOfCards) {
+                case "hand":
+                    // can play
+                    for (i; opponent2Hand.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "overcards":
+                    // can play
+                    for (i; opponent2Overcards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "undercards":
+                    // can play
+                    for (i; opponent2Undercards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+            }
+            break;
+        case 4:
+        //opponent #3
+            switch (groupsOfCards) {
+                case "hand":
+                    // can play
+                    for (i; opponent3Hand.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "overcards":
+                    // can play
+                    for (i; opponent3Overcards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+                case "undercards":
+                    // can play
+                    for (i; opponent3Undercards.includes(i); i--) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    break;
+            }
+            break;
+    }
+}
+
+function highestPossible(groupsOfCards, centerAmount) {
+    let i = centerAmount
+    swich (groupsOfCards) {
+        case hand:
+            // Highest card
+            for (; i >= 0; i--) {
+                if (hand.includes(i)) {
+                    return i; // return the matching instance
+                }
+            }
+            return false;
+        case overcards:
+            // Highest card
+            for (; i >= 0; i--) {
+                if (overcards.includes(i)) {
+                    return i; // return the matching instance
+                }
+            }
+            return false;
+        case undercards:
+            // Highest card
+            for (; i >= 0; i--) {
+                if (undercards.includes(i)) {
+                    return i; // return the matching instance
+                }
+            }
+            return false;
+        break;
+    }
+}
+
+function playCard(card, groupOfCards) {
+    // PLAY CARD TO THE SCREEN
+    let cardIndex = indexOf(card)
+    switch(groupsOfCards) {
+        case "hand":
+            hand.splice(cardIndex, 1)
+            break;
+        case "overcards":
+            overcards.splice(cardIndex, 1)
+            break;
+        case "undercards":
+            undercards.splice(cardIndex, 1)
+            break;
+    }
+}
+
+function cardNameToImage(cardName) {
+    // Translate the name of the card in a string to the html content of the image
+    switch(cardName) {
+        case "":
+            //...
+            //...
+            break;
+        
+    }
+}
+
