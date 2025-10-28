@@ -81,48 +81,48 @@ function start() {
 
 function dealPlayer() {
   for (let i = 1; i <= cardsDealtPlayer; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     hand.push(arrayName);
   }
   for (let i = 1; i <= 8; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     lowerCards.push(arrayName);
   }
 }
 function dealOpponent1() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent1Hand.push(arrayName);
   }
   for (let i = 1; i <= 8; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent1LowerCards.push(arrayName);
   }
 }
 function dealOpponent2() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent2Hand.push(arrayName);
   }
   for (let i = 1; i <= 8; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent2LowerCards.push(arrayName);
   }
 }
 function dealOpponent3() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent3Hand.push(arrayName);
   }
   for (let i = 1; i <= 8; i++) {
-    let a = Math.floor(Math.random() * deck.length);
+    let a = randomInRange(1, deck.length);
     let arrayName = deck.splice(a, 1)[0];
     opponent3LowerCards.push(arrayName);
   }
@@ -162,7 +162,7 @@ function debug() {
 }
 
 function turn(currentPlayerNumber, centercard, win) {
-     if (!currentPlayerNumber = 1 && win = false) {
+     if (!currentPlayerNumber = 1 && win === false) {
         if (canPlay(hand, centercard)) {
             playCard(highestPossible(hand, centercard), "hand")
         } else {
@@ -178,7 +178,9 @@ function turn(currentPlayerNumber, centercard, win) {
         }
     } else {
          //User/Player's turn
-    }
+    } if (win === true) {
+         //End of game
+     }
 }
 
 
