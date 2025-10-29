@@ -163,7 +163,7 @@ function debug() {
 
 function turn(currentPlayerNumber, centercard, win) {
      if (!currentPlayerNumber = 1 && win === false) {
-        if (canPlay(hand, centercard)) {
+        if (canPlay(hand, centercard, currentPlayerNumber)) {
             playCard(highestPossible(hand, centercard), "hand")
         } else {
             if (overcards.length > undercards.length) {
