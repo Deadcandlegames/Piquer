@@ -30,6 +30,7 @@ for (let suit of suits) {
     deck.push([rank, suit]); // Each card is an array: [rank, suit]
   }
 }
+
 function start() {
   cardsDealtPlayer = null;
   goesFirst = null;
@@ -93,6 +94,7 @@ function dealPlayer() {
     lowerCards.push(arrayName);
   }
 }
+
 function dealOpponent1() {
   for (let i = 1; i <= cardsDealt; i++) {
     let a = randomInRange(1, deck.length);
@@ -105,6 +107,7 @@ function dealOpponent1() {
     opponent1LowerCards.push(arrayName);
   }
 }
+
 function dealOpponent2() {
   for (let i = 1; i <= cardsDealt; i++) {
     let a = randomInRange(1, deck.length);
@@ -117,6 +120,7 @@ function dealOpponent2() {
     opponent2LowerCards.push(arrayName);
   }
 }
+
 function dealOpponent3() {
   for (let i = 1; i <= cardsDealt; i++) {
     let a = randomInRange(1, deck.length);
@@ -129,6 +133,7 @@ function dealOpponent3() {
     opponent3LowerCards.push(arrayName);
   }
 }
+
 function playTurn() {
   if (currentPlayer === 0) {
     // Player's turn
@@ -143,6 +148,7 @@ function playTurn() {
 function randomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function debug() {
   let debug = prompt("Enter a keyword");
   switch (debug) {
