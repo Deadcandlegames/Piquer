@@ -15,8 +15,10 @@ let cardsDealtPlayer;
 let goesFirst;
 let numberOfPlayers;
 let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
-document.getElementById("debug").addEventListener("click", debug);
-document.getElementById("start").addEventListener("click", start);
+const debugbtn = document.getElementById("debug")
+const startbtn = document.getElementById("start")
+debugbtn.addEventListener("click", debug);
+startbtn.addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
@@ -326,11 +328,11 @@ function playCard(card, groupOfCards) {
 
 function cardNameToImage(cardName) {
   const cardImages = {
-    "Ace of Spades": "images/AS.png",
-    "2 of Spades": "images/2S.png",
-    "3 of Hearts": "images/3H.png",
-    "King of Clubs": "images/KC.png",
-    // ...add all your cards here
+    [1, "Spades"]: "images/AS.png",
+    [2, "Spades"]: "images/2S.png",
+    [3, "Spades"]: "images/3S.png",
+    [4, "Spades"]: "images/4S.png",
+    // ...add all cards here with [rank, suit]
   };
 
   // return the image if found, or a default if not
