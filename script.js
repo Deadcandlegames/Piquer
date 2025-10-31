@@ -325,13 +325,15 @@ function playCard(card, groupOfCards) {
 }
 
 function cardNameToImage(cardName) {
-    // Translate the name of the card in a string to the html content of the image
-    switch(cardName) {
-        case "":
-            //...
-            //...
-            break;
-        
-    }
-}
+  const cardImages = {
+    "Ace of Spades": "images/AS.png",
+    "2 of Spades": "images/2S.png",
+    "3 of Hearts": "images/3H.png",
+    "King of Clubs": "images/KC.png",
+    // ...add all your cards here
+  };
 
+  // return the image if found, or a default if not
+  // remember to call the objects property you can use object.property or object[property] 
+  return cardImages[cardName] || "images/default.png";
+}
