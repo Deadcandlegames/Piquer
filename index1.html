@@ -93,37 +93,6 @@
   </div>
 
   <script>
-    // Simple demo interactions: reset and deal demo cards
-    const resetBtn = document.getElementById('resetBtn');
-    const dealBtn = document.getElementById('dealDemo');
-
-    function resetBoard(){
-      document.querySelectorAll('.card-slot').forEach(s => s.textContent = '—');
-      document.getElementById('topcard').textContent = '?';
-      document.getElementById('deckCount').textContent = '24';
-    }
-
-    function dealDemo(){
-      const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
-      const suits = ['♠','♥','♦','♣'];
-      function randCard(){return ranks[Math.floor(Math.random()*ranks.length)]+suits[Math.floor(Math.random()*suits.length)];}
-
-      document.querySelectorAll('.hand').forEach(hand => {
-        hand.querySelectorAll('.card-slot').forEach(slot => slot.textContent = randCard());
-      });
-      document.querySelectorAll('.lower-cards').forEach(lc => {
-        lc.querySelectorAll('.card-slot').forEach((slot,i) => slot.textContent = i===0?randCard():'•');
-      });
-      document.getElementById('topcard').textContent = randCard();
-      document.getElementById('deckCount').textContent = String(Math.floor(Math.random()*30)+10);
-    }
-
-    resetBtn.addEventListener('click',resetBoard);
-    dealBtn.addEventListener('click',dealDemo);
-
-    // initialize
-    resetBoard();
-
     // Optional: smooth scaling based on available viewport so the layout "snaps" to a usable size.
     // This adjusts --ui-scale (used by .table transform) to avoid overflow on tiny screens.
     (function enableAutoScale(){
