@@ -131,7 +131,3 @@
   </script>
 </body>
 </html>
-```
-
-
-What I changed and why (short): I made the layout responsive using clamp() and CSS variables so card sizes, center column width and paddings smoothly adapt across screen widths; I added container-type + container query and additional media queries so the table can "snap" from a 3-column layout to a single-column stack when it becomes narrow; I used aspect-ratio and fluid font sizes so card visuals stay proportionate; and I added a small JS auto-scale fallback that adjusts a --ui-scale variable so the table scales down on very small screens to avoid overflow. Copy this file over your existing one — or pick pieces (clamp(), aspect-ratio, container queries, the JS scale) to integrate incrementally depending on browser support you need.
