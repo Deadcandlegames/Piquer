@@ -1,4 +1,6 @@
 let hand = [];
+let undercards = [];
+let overcards = [];
 let opponent1Hand = [];
 let opponent1Overcards = [];
 let opponent1Undercards = [];
@@ -15,6 +17,7 @@ let goesFirst;
 let numberOfPlayers;
 let win;
 let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
+//camel case for all of the variable names
 document.getElementById("debug").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
@@ -85,56 +88,77 @@ function start() {
   }
 }
 //clean the section of code before this up
+//IMPORTANT arrayName does not mean the name of the array, it means the name of the card
 
 function dealPlayer() {
-  for (let i = 1; i <= cardsDealtPlayer; i++) {
-    let a = randomInRange(1, deck.length);
+  for (let i = 0; i < cardsDealtPlayer; i++) {
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     hand.push(arrayName);
   }
-  for (let i = 1; i <= 8; i++) {
-    let a = randomInRange(1, deck.length);
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
-    lowerCards.push(arrayName);
+    undercards.push(arrayName);
+  }
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
+    let arrayName = deck.splice(a, 1)[0];
+    overcards.push(arrayName);
   }
 }
 
 function dealOpponent1() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length);
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     opponent1Hand.push(arrayName);
   }
-  for (let i = 1; i <= 8; i++) {
-    let a = randomInRange(1, deck.length);
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
-    opponent1LowerCards.push(arrayName);
+    opponent1Undercards.push(arrayName);
+  }
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
+    let arrayName = deck.splice(a, 1)[0];
+    opponent1Overcards.push(arrayName);
   }
 }
 
 function dealOpponent2() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length);
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     opponent2Hand.push(arrayName);
   }
-  for (let i = 1; i <= 8; i++) {
-    let a = randomInRange(1, deck.length);
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
-    opponent2LowerCards.push(arrayName);
+    opponent2Undercards.push(arrayName);
+  }
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
+    let arrayName = deck.splice(a, 1)[0];
+    opponent2Overcards.push(arrayName);
   }
 }
 
 function dealOpponent3() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length);
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     opponent3Hand.push(arrayName);
   }
-  for (let i = 1; i <= 8; i++) {
-    let a = randomInRange(1, deck.length);
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
-    opponent3LowerCards.push(arrayName);
+    opponent3Undercards.push(arrayName);
+  }
+  for (let i = 1; i <= 4; i++) {
+    let a = randomInRange(1, deck.length - 1);
+    let arrayName = deck.splice(a, 1)[0];
+    opponent3Undercards.push(arrayName);
   }
 }
 
@@ -175,7 +199,7 @@ function debug() {
 }
 
 function turn(centercard, win) {
-     if (!currentPlayer = 1 && win === false) {
+     if (currentPlayer !== 1 && win == false) {
         if (canPlay("hand", centercard, currentPlayer)) {
             playCard(highestPossible("hand", centercard), "hand")
         } else {
@@ -183,7 +207,7 @@ function turn(centercard, win) {
                 playCard(highestPossible("overcards", centercard), "overcards")
             } else {
                 if (canplay("undercards", centercard, currentPlayer)) {
-                    playCard(undercards[0], "undercards"
+                    playCard(undercards[0], "undercards")
                 } else {
                     hand.push(centerCards)
                 }
@@ -195,101 +219,96 @@ function turn(centercard, win) {
 
 function canPlay(groupsOfCards, centerAmount, currentPlayer) {
     let i = centerAmount
+    let canPlay = "undecided"
     // so i = centerAmount and centerAmount = centerCard and centerCard = centerCards.lengh - 1
     switch (currentPlayer) {
-        case 2:
+        case 1:
         //opponent #1
             switch (groupsOfCards) {
                 case "hand":
                     // can play
                     for (i; opponent1Hand.includes(i); i--) {
-                        return true;
-                    } else {
-                        return false;
+                         return true;
+                         canPlay = "true";
                     }
                     break;
                 case "overcards":
                     // can play
                     for (i; opponent1Overcards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
                 case "undercards":
                     // can play
                     for (i; opponent1Undercards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
             }
             break;
-        case 3:
+        case 2:
         //opponent #2
             switch (groupsOfCards) {
                 case "hand":
                     // can play
                     for (i; opponent2Hand.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
                 case "overcards":
                     // can play
                     for (i; opponent2Overcards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
                 case "undercards":
                     // can play
                     for (i; opponent2Undercards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
             }
             break;
-        case 4:
+        case 3:
         //opponent #3
             switch (groupsOfCards) {
                 case "hand":
                     // can play
                     for (i; opponent3Hand.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
                 case "overcards":
                     // can play
                     for (i; opponent3Overcards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
                 case "undercards":
                     // can play
                     for (i; opponent3Undercards.includes(i); i--) {
                         return true;
-                    } else {
-                        return false;
+                        canPlay = "true";
                     }
                     break;
             }
             break;
     }
+    if (canPlay !== "true") {
+        return false;   
+    }
 }
 
 function highestPossible(groupsOfCards, centerAmount) {
     let i = centerAmount
-    swich (groupsOfCards) {
+    switch (groupsOfCards) {
         case "hand":
             // Highest card
             for (; i >= 0; i--) {
@@ -397,7 +416,7 @@ const cardImages = {
   [13, "Clubs"]: "images/13C.png",
 }
 
-  // return the image if found, or a "undefinded" if not
+  // return the image if found, or a "undefind" if not
   // remember to call the objects property you can use object.property or object[property] 
-  return cardImages[cardName] || "undefinded";
+  return cardImages[cardName] || "undefind";
 }
