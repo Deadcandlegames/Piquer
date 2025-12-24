@@ -186,7 +186,7 @@ function debug() {
       console.log("Hand: ", hand, "Under Cards: ", undercards, "Over cards", overcards);
       return;
     case "op1":
-      console.log("Hand: ", opponent1Hand, "Under Cards: ", opponent1Undercards, "Over cards", opponen13Overcards);
+      console.log("Hand: ", opponent1Hand, "Under Cards: ", opponent1Undercards, "Over cards", opponent13Overcards);
       return;
     case "op2":
       console.log("Hand: ", opponent2Hand, "Under Cards: ", opponent2Undercards, "Over cards", opponent2Overcards);
