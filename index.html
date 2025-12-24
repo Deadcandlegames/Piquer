@@ -73,42 +73,5 @@
 
     <button id="debug"></button>
   </div>
-
-  <script>
-    // Optional: smooth scaling based on available viewport so the layout "snaps" to a usable size.
-    // This adjusts --ui-scale (used by .table transform) to avoid overflow on tiny screens.
-    (function enableAutoScale(){
-      const root = document.documentElement;
-      const tableEl = document.querySelector('.table');
-
-      function computeScale(){
-        // We want the table to fit comfortably within the viewport.
-        // Estimate the table's natural width and compare to viewport width/height.
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-
-        // Use the computed style to read the intended table max-width/height
-        const naturalMaxWidth = Math.min(1400, vw - 40); // mirrors CSS max-width and body padding
-        const naturalHeight = Math.min(vh - 40, 980);
-
-        // Rough bounding box: reduce scale if either dimension would exceed viewport
-        const tableRect = tableEl.getBoundingClientRect();
-        // If tableRect hasn't laid out yet, use a conservative scale based on vw/vh.
-        let scaleW = 1, scaleH = 1;
-        if (tableRect.width > 0) scaleW = (vw - 28) / tableRect.width;
-        if (tableRect.height > 0) scaleH = (vh - 80) / tableRect.height;
-
-        // Only scale down, never scale up beyond 1. Keep scale in [0.75, 1].
-        let scale = Math.min(1, scaleW, scaleH);
-        scale = Math.max(0.75, scale);
-        root.style.setProperty('--ui-scale', String(scale));
-      }
-
-      // compute initially and on resize/orientation change
-      computeScale();
-      window.addEventListener('resize', computeScale, {passive:true});
-      window.addEventListener('orientationchange', computeScale, {passive:true});
-    })();
-  </script>
 </body>
 </html>
