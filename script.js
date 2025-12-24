@@ -19,6 +19,7 @@ let win;
 let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
 //camel case for all of the variable names
 document.getElementById("resetBtn").addEventListener("click", debug);
+document.getElementById("debug").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
