@@ -1,21 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="uft-8">
-        <title>Piquer!</title>
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <center><heading1>Piquer!</heading1></center>
-        <br>
-        <center><button id="start">Start</button></center>
-        <br>
-        <center><button id="debug">Debug</button></center>
-        <br>
-        <p>Hand:</p>
-        <br>
-        <p id="debugDisplay" align="center"></p>
-        <div id="gameArea"></div>
-        <hr>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Piquer</title>
+</head>
+<body>
+  <div class="table" role="application" aria-label="Card game table">
+
+    <div class="controls">
+      <button class="btn" id="resetBtn">Reset Game</button>
+      <button class="btn" id="start">Start</button>
+    </div>
+
+    <div class="player" id="player-2">
+      <h3>Player 2</h3>
+      <div class="slot-title">Lower cards</div>
+      <div class="lower-cards" id="p2-lowercards">
+<!--Javascript will add cards here hopefully -->
+      </div>
+      <div class="slot-title">Hand</div>
+      <div class="hand" id="p2-hand">
+<!--Javascript will add cards here hopefully -->
+      </div>
+    </div>
+
+    <div class="player player-left" id="player-3">
+      <h3>Player 3</h3>
+      <div class="slot-title">Lower cards</div>
+      <div class="lower-cards" id="p3-lowercards">
+<!--Javascript will add cards here hopefully -->
+      </div>
+      <div class="slot-title">Hand</div>
+      <div class="hand" id="p3-hand">
+<!--Javascript will add cards here hopefully -->
+      </div>
+    </div>
+
+    <div class="center-area" id="center">
+      <div class="center-pile" id="centercards">
+        <div class="label">Center pile</div>
+        <div class="topcard" id="topcard">?</div>
+        <div class="label">Deck: <span id="deckCount">24</span></div>
+      </div>
+    </div>
+<!-- Still need to look into this -->
+    
+    <div class="player player-right" id="player-4">
+      <h3>Player 4</h3>
+      <div class="slot-title">Lower cards</div>
+      <div class="lower-cards" id="p4-lowercards">
+<!--Javascript will add cards here hopefully -->
+      </div>
+      <div class="slot-title">Hand</div>
+      <div class="hand" id="p4-hand">
+<!--Javascript will add cards here hopefully -->
+      </div>
+    </div>
+
+    <div class="player player-bottom" id="player-0">
+      <h3>You</h3>
+      <div class="slot-title">Lower cards</div>
+      <div class="lower-cards" id="p0-lowercards">
+<!--Javascript will add cards here hopefully -->
+      </div>
+      <div class="slot-title">Hand</div>
+      <div class="hand" id="p0-hand">
+<!--Javascript will add cards here hopefully -->
+      </div>
+    </div>
+
+    <button id="debug"></button>
+  </div>
+</body>
 </html>
