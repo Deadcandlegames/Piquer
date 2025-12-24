@@ -420,7 +420,6 @@ const cardImages = {
 
   // return the image if found, or a "undefind" if not
   // remember to call the objects property you can use object.property or object[property] 
-  const key = `${card[0]}-${card[1]}`;
   return cardImages[key] || "undefined";
 }
 
