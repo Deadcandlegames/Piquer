@@ -183,7 +183,7 @@ function debug() {
   let debug = prompt("Enter a keyword");
   switch (debug) {
     case "hand":
-      console.log("Hand: ", hand, "Lower Cards: ", lowerCards);
+      console.log("Hand: ", hand, "Under Cards: ", undercards, "Over cards", overcards);
       return;
     case "op1":
       console.log("Hand: ", opponent1hand, "Under Cards: ", opponent1Undercards, "Over cards", opponen13Overcards);
