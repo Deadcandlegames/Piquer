@@ -18,7 +18,7 @@ let numberOfPlayers;
 let win;
 let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
 //camel case for all of the variable names
-document.getElementById("debug").addEventListener("click", debug);
+document.getElementById("resetBtn").addEventListener("click", debug);
 document.getElementById("start").addEventListener("click", start);
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
@@ -158,7 +158,7 @@ function dealOpponent3() {
   for (let i = 1; i <= 4; i++) {
     let a = randomInRange(1, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
-    opponent3Undercards.push(arrayName);
+    opponent3Overcards.push(arrayName);
   }
 }
 
@@ -185,13 +185,13 @@ function debug() {
       console.log("Hand: ", hand, "Lower Cards: ", lowerCards);
       return;
     case "op1":
-      console.log("Hand: ", opponent1hand, "Lower Cards: ", opponent1LowerCards);
+      console.log("Hand: ", opponent1hand, "Under Cards: ", opponent1Undercards, "Over cards", opponen13Overcards);
       return;
     case "op2":
-      console.log("Hand: ", opponent2hand, "Lower Cards: ", opponent2LowerCards);
+      console.log("Hand: ", opponent2hand, "Under Cards: ", opponent2Undercards, "Over cards", opponent2Overcards);
       return;
     case "op3":
-      console.log("Hand: ", opponent3hand, "Lower Cards: ", opponent3LowerCards);
+      console.log("Hand: ", opponent3hand, "Under Cards: ", opponent3Undercards, "Over cards", opponent3Overcards);
       return;
     default:
       alert("Error! Error code 201");
@@ -420,3 +420,4 @@ const cardImages = {
   // remember to call the objects property you can use object.property or object[property] 
   return cardImages[cardName] || "undefind";
 }
+
