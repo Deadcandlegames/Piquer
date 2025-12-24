@@ -93,72 +93,120 @@ function start() {
 
 function dealPlayer() {
   for (let i = 0; i < cardsDealtPlayer; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     hand.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     undercards.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     overcards.push(arrayName);
   }
 }
 
 function dealOpponent1() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent1Hand.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent1Undercards.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent1Overcards.push(arrayName);
   }
 }
 
 function dealOpponent2() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent2Hand.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent2Undercards.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent2Overcards.push(arrayName);
   }
 }
 
 function dealOpponent3() {
   for (let i = 1; i <= cardsDealt; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent3Hand.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent3Undercards.push(arrayName);
   }
   for (let i = 1; i <= 4; i++) {
-    let a = randomInRange(1, deck.length - 1);
+    let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
+    if (!arrayName) {
+      alert("Error ???");
+      break;
+    }
     opponent3Overcards.push(arrayName);
   }
 }
