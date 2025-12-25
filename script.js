@@ -414,7 +414,7 @@ function playCard(card, groupOfCards) {
 }
 
 function cardNameToImage(cardName) {
-const key = `${card[0]}-${card[1]}`;
+const key = `${cardName[0]}-${cardName[1]}`;
 const cardImages = {
   // Spades
   "1-Spades": "images/1S.png",
