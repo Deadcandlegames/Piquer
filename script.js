@@ -17,6 +17,7 @@ let goesFirst;
 let numberOfPlayers;
 let win;
 let currentPlayer = 0; // 0 = you, 1 = opponent1, 2 = opponent2, 3 = opponent3
+let htmlcardshand;
 //camel case for all of the variable names
 document.getElementById("resetBtn").addEventListener("click", debug);
 document.getElementById("debug").addEventListener("click", debug);
@@ -87,9 +88,19 @@ function start() {
     default:
       alert("Error! Error Code 101");
   }
+  toTheScreen(hand)
 }
 //clean the section of code before this up
 //IMPORTANT arrayName does not mean the name of the array, it means the name of the card
+function toTheScreen(cardGroup) {
+  //Plays card to the screen
+  for (let i = 0; i < cardsDealtPlayer - 1; i++) {
+  let htmlcardhand = cardNameToImage(cardGroup[i]); //this is temporary
+  htmlcardshand = `<img src="${htmlcardhand}" alt="${htmlcardhand}" title="Click here to play this card">`;
+  let div = document.getElementById(`p0-${cardGroup}`);
+  div.innerHTML += htmlcardshand;
+  }
+}
 
 function dealPlayer() {
   for (let i = 0; i < cardsDealtPlayer; i++) {
@@ -211,7 +222,7 @@ function dealOpponent3() {
   }
 }
 
-function playTurn() {
+function playTurn(win) {
   if (currentPlayer === 0 && win == false) {
     // Player's turn
   } else {
@@ -387,8 +398,8 @@ function highestPossible(groupsOfCards, centerAmount) {
 }
 
 function playCard(card, groupOfCards) {
-    // PLAY CARD TO THE SCREEN
-    let cardIndex = indexOf(card)
+    //PLAY CARD TO SCREEN
+    let cardIndex = groupOfCards.indexOf(card)
     switch(groupsOfCards) {
         case "hand":
             hand.splice(cardIndex, 1)
@@ -403,7 +414,7 @@ function playCard(card, groupOfCards) {
 }
 
 function cardNameToImage(cardName) {
-const key = `${card[0]}-${card[1]}`;
+const key = `${cardName[0]}-${cardName[1]}`;
 const cardImages = {
   // Spades
   "1-Spades": "images/1S.png",
