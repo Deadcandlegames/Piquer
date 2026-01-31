@@ -98,7 +98,7 @@ function toTheScreen(cardGroup) {
   let htmlcardhand = cardNameToImage(cardGroup[i]); //this is temporary
   htmlcardshand = `<img src="${htmlcardhand}" alt="${htmlcardhand}" title="Click here to play this card">`;
   let div = document.getElementById(`p0-${cardGroup}`);
-  div.innerHTML += htmlcardshand;
+  div.innerHTML += htmlcardhand;
   }
 }
 
