@@ -475,6 +475,9 @@ const cardImages = {
   "11-Clubs": "images/11C.png",
   "12-Clubs": "images/12C.png",
   "13-Clubs": "images/13C.png",
+
+  //Hidden Card
+  "Hidden": "images/hiddenCard.png"
 }
 
   // return the image if found, or a "undefind" if not
