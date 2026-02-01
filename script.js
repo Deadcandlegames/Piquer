@@ -88,7 +88,7 @@ function start() {
     default:
       alert("Error! Error Code 101");
   }
-  toTheScreen(hand)
+  toTheScreen(hand, "hand") // these are meant to be the same, but note the difference, one is a variable the other is a string
 }
 //clean the section of code before this up
 //IMPORTANT arrayName does not mean the name of the array, it means the name of the card
