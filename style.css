@@ -39,6 +39,11 @@ Game stylesheet — styles/game.css
   --ease: cubic-bezier(.2,.9,.3,1);
   --fast: 160ms;
   --med: 280ms;
+
+   /* Size (I think) */
+   --card-min-width: 160px;
+   --card-min-height: 220px;
+   --card-padding: 1.2rem;
 }
 
 /* ===========================
@@ -318,6 +323,23 @@ body{
   transition: transform var(--med) var(--ease), box-shadow var(--med) var(--ease);
 }
 .card-like:hover{ transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+
+/* Make grid use the card size variable */
+.game-board,
+.lower-cards, .hand {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 160px), 1fr));
+  align-items: stretch;
+}
+
+/* Apply the new size variables to cards */
+.card {
+  min-width: var(--card-min-width, 160px);
+  min-height: var(--card-min-height, 220px);
+  padding: var(--card-padding, 1.2rem);
+  /* ...rest of card styles... */
+}
 
 /* ===========================
    Notes & recommended markup
