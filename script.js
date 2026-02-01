@@ -92,13 +92,20 @@ function start() {
 }
 //clean the section of code before this up
 //IMPORTANT arrayName does not mean the name of the array, it means the name of the card
-function toTheScreen(cardGroup) {
-  //Plays card to the screen
-  for (let i = 0; i < cardsDealtPlayer - 1; i++) {
-  let htmlcardhand = cardNameToImage(cardGroup[i]); //this is temporary
-  htmlcardshand = `<img src="${htmlcardhand}" alt="${htmlcardhand}" title="Click here to play this card">`;
-  let div = document.getElementById(`p0-${cardGroup}`);
-  div.innerHTML += htmlcardhand;
+function toTheScreen(cardGroup, sectionName) {
+  //Plays card to screen
+  const div = document.getElementById(`p0-${sectionName}`);
+  // Only proceed if the element was actually found
+  if (div) {
+    div.innerHTML = ""; 
+    for (let i = 0; i < cardGroup.length; i++) {
+      let cardImage = cardNameToImage(cardGroup[i]); 
+      let htmlCard = `<img src="${cardImage}" alt="${cardImage}" title="Click here to play this card">`;
+      div.innerHTML += htmlCard;
+    }
+  } else {
+    console.error(`Could not find element with ID: p0-${sectionName}`);
+    alert("Error 301")
   }
 }
 
