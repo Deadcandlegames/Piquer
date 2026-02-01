@@ -341,6 +341,25 @@ body{
   /* ...rest of card styles... */
 }
 
+/* Very IMPORTANT!! this is the new addition this comment is to be edited when css is uploaded below is the card scaling (hopefully) for the images. */
+
+.card__img {
+  width: 80px; /* default width */
+  height: auto;
+  transition: width 0.2s var(--ease);
+}
+
+@media (max-width: 900px) {
+  .card__img {
+    width: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .card__img {
+    width: 40px;
+  }
+}
+
 /* ===========================
    Notes & recommended markup
    ===========================
