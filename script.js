@@ -100,11 +100,11 @@ function toTheScreen(cardGroup, sectionName) {
     for (let i = 0; i < cardGroup.length; i++) {
       let cardImage = cardNameToImage(cardGroup[i]); 
       let htmlCard = `<div class="card clickable" role="button" tabindex="0">
-        <img src="${cardImage}" class="card_img" alt="${cardGroup[i]}">
-        <div class="card__title"></div>
-        <div class="card__meta">Your Card</div>
+        <img src="1S.png" class="card_img" alt="Ace of Spades">
+        <div class="card__title">Ace of Spades</div>
+        <div class="card__meta">Special Card</div>
         <div class="accent-line"></div>
-      </div>`;
+      </div>;
       div.innerHTML += htmlCard;
     }
   } else {
