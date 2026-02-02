@@ -98,13 +98,17 @@ function toTheScreen(cardGroup, sectionName) {
   if (div) {
     div.innerHTML = ""; 
     for (let i = 0; i < cardGroup.length; i++) {
-      let cardImage = cardNameToImage(cardGroup[i]); 
+      let card = cardGroup[i]; // [rank, suit]
+      let cardImage = cardNameToImage(card);
+      let rank = card[0];
+      let suit = card[1];
+      let displayName = `${rank} of ${suit}`;
       let htmlCard = `<div class="card clickable" role="button" tabindex="0">
-        <img src="${cardImage}" class="${cardImage}" alt="${cardGroup[1]}">
-        <div class="card__title">${cardGroup[1]}</div>
+        <img src="${cardImage}" class="card__img" alt="${displayName}">
+        <div class="card__title">${displayName}</div>
         <div class="card__meta">Your Card (temporary)</div>
         <div class="accent-line"></div>
-      </div>`;
+      </div>`; //it might be card_img not card__img
       div.innerHTML += htmlCard;
     }
   } else {
@@ -495,4 +499,3 @@ const cardImages = {
   // remember to call the objects property you can use object.property or object[property] 
   return cardImages[key] || "undefined";
 }
-
