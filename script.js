@@ -104,7 +104,7 @@ function toTheScreen(cardGroup, sectionName) {
         <div class="card__title">Ace of Spades</div>
         <div class="card__meta">Special Card</div>
         <div class="accent-line"></div>
-      </div>;
+      </div>`;
       div.innerHTML += htmlCard;
     }
   } else {
