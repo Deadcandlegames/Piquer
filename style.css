@@ -1,0 +1,377 @@
+/* 
+Game stylesheet — styles/game.css
+*/
+
+/* ===========================
+   Theme variables
+   =========================== */
+:root{
+  /* Blues */
+  --blue-50:  #f3fbff;
+  --blue-100: #e6f9ff;
+  --blue-200: #cfeefc;
+  --blue-400: #66d9ff;
+  --blue-500: #26b6ff; /* primary */
+  --blue-600: #0ea0e6;
+
+  /* Oranges */
+  --orange-400: #ff8a3e;
+  --orange-500: #ff6a00; /* vivid accent */
+  --orange-600: #ff5600;
+
+  /* Neutrals */
+  --bg: #f7fbfe;
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,250,255,0.95));
+  --muted: #6b7785;
+  --glass: rgba(255,255,255,0.6);
+
+  /* Shadows */
+  --shadow-soft: 0 6px 18px rgba(20,40,60,0.08);
+  --shadow-medium: 0 10px 30px rgba(20,40,60,0.12);
+  --shadow-glow: 0 6px 30px rgba(255,106,0,0.14);
+
+  /* Layout */
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+
+  /* Animation */
+  --ease: cubic-bezier(.2,.9,.3,1);
+  --fast: 160ms;
+  --med: 280ms;
+
+   /* Size (I think) */
+   --card-min-width: 160px;
+   --card-min-height: 220px;
+   --card-padding: 1.2rem;
+}
+
+/* ===========================
+   Base / Reset
+   =========================== */
+* { box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(circle at 10% 10%, var(--blue-50), transparent 20%),
+              linear-gradient(180deg, var(--bg), #f1f8ff 60%);
+  color: #0f1724;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.35;
+  padding: 2.5rem;
+}
+
+/* Container / layout */
+.game-container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Header */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+.header .title{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.logo{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background: linear-gradient(135deg, var(--blue-500), var(--orange-500));
+  box-shadow: var(--shadow-medium);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: white;
+  font-weight:700;
+  font-size:1.05rem;
+}
+
+/* HUD / score area */
+.hud{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+}
+.hud .score{
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245,250,255,0.95));
+  padding:.6rem .9rem;
+  border-radius:10px;
+  box-shadow: var(--shadow-soft);
+  display:flex;
+  gap:.6rem;
+  align-items:center;
+  font-weight:600;
+  color:var(--muted);
+}
+.hud .score .value{
+  color:var(--blue-600);
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+/* ===========================
+   Board / Cards
+   =========================== */
+.game-board{
+  display:grid;
+  gap:1rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  align-items:stretch;
+  margin-top:1.25rem;
+}
+
+/* Card base */
+.card{
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: .9rem;
+  min-height: 120px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--med) var(--ease), box-shadow var(--med) var(--ease), filter var(--med) var(--ease);
+  cursor: default; /* leave pointer toggled by modifier for semantics */
+  user-select: none;
+  position:relative;
+  overflow: hidden;
+  border: 1px solid rgba(16,24,40,0.03);
+}
+
+/* Make cards look and behave like buttons */
+.card.clickable, .card[role="button"], .card.button{
+  cursor: pointer;
+  outline: none;
+}
+
+/* Inner content */
+.card__title{
+  font-size: 1.0rem;
+  font-weight:700;
+  color: #08304a;
+  margin-bottom: .25rem;
+}
+.card__meta{
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* Accent band (left) */
+.card::before{
+  content: "";
+  position:absolute;
+  left: -18%;
+  top: -40%;
+  width: 140%;
+  height: 220%;
+  background: radial-gradient(circle at 20% 40%, rgba(38,182,255,0.12), transparent 20%),
+              linear-gradient(90deg, rgba(255,106,0,0.06), transparent 40%);
+  transform: rotate(-12deg);
+  transition: opacity var(--med) var(--ease);
+  pointer-events:none;
+}
+
+/* ===========================
+   Hover / Focus / Active animations
+   =========================== */
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .card, .btn { transition: none; transform: none !important; }
+}
+
+/* Hover effect for clickable cards */
+.card.clickable:hover,
+.card[role="button"]:hover,
+.card.button:hover{
+  transform: translateY(-8px) scale(1.035);
+  box-shadow: var(--shadow-medium), var(--shadow-glow);
+  filter: saturate(1.03);
+}
+.card.clickable:active,
+.card[role="button"]:active,
+.card.button:active{
+  transform: translateY(-2px) scale(.995);
+  box-shadow: 0 4px 14px rgba(20,40,60,0.10);
+}
+
+/* Keyboard focus (accessibility) */
+.card.clickable:focus-visible,
+.card[role="button"]:focus-visible,
+.card.button:focus-visible{
+  box-shadow: 0 0 0 4px rgba(38,182,255,0.14), 0 10px 28px rgba(12,35,60,0.12);
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(38,182,255,0.18);
+}
+
+/* Subtle animated accent line on hover */
+.card .accent-line{
+  position:absolute;
+  bottom:0;
+  left:0;
+  height:4px;
+  width:0%;
+  background: linear-gradient(90deg, var(--orange-500), var(--blue-500));
+  transition: width var(--med) var(--ease);
+}
+.card.clickable:hover .accent-line,
+.card[role="button"]:hover .accent-line,
+.card.button:hover .accent-line{
+  width:100%;
+}
+
+/* Small glowing ripple on hover via pseudo-element */
+.card::after{
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,106,0,0.12) 0%, transparent 55%);
+  transition: width var(--med) var(--ease), height var(--med) var(--ease), opacity var(--med) var(--ease);
+  opacity: 0;
+  pointer-events: none;
+}
+.card.clickable:hover::after,
+.card[role="button"]:hover::after,
+.card.button:hover::after{
+  width: 320px;
+  height: 320px;
+  opacity: 1;
+  transition-timing-function: var(--ease);
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.6rem .9rem;
+  border-radius: 10px;
+  font-weight:700;
+  border: none;
+  background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
+  color: white;
+  cursor:pointer;
+  box-shadow: 0 6px 20px rgba(12,45,80,0.12);
+  transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease), filter var(--fast) var(--ease);
+}
+.btn:active{ transform: translateY(1px) scale(.995); }
+.btn--accent{
+  background: linear-gradient(90deg, var(--orange-500), #ff8f3a);
+  color:#08101a;
+  box-shadow: 0 6px 26px rgba(255,106,0,0.14);
+}
+
+/* Small secondary */
+.btn--ghost{
+  background: transparent;
+  border:1px solid rgba(12,35,60,0.06);
+  color: var(--muted);
+  font-weight:600;
+}
+
+/* ===========================
+   Modal / overlays
+   =========================== */
+.modal{
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,252,255,0.98));
+  border-radius: var(--radius-lg);
+  padding:1.25rem;
+  box-shadow: 0 30px 80px rgba(9,25,40,0.22);
+  border: 1px solid rgba(14,30,50,0.04);
+}
+
+/* ===========================
+   Responsive tweaks
+   =========================== */
+@media (max-width:720px){
+  body{ padding:1rem; }
+  .game-board{ gap:.75rem; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .header{ flex-direction:column; align-items:flex-start; gap:.5rem; }
+}
+
+/* ===========================
+   Helpful utility classes
+   =========================== */
+.flex{ display:flex; }
+.center{ display:flex; align-items:center; justify-content:center; }
+.stack{ display:flex; flex-direction:column; gap:.5rem; }
+
+/* A small helper for making any element card-like / clickable */
+.card-like{
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  padding:.6rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--med) var(--ease), box-shadow var(--med) var(--ease);
+}
+.card-like:hover{ transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+
+/* Make grid use the card size variable */
+.game-board,
+.lower-cards, .hand {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width, 160px), 1fr));
+  align-items: stretch;
+}
+
+/* Apply the new size variables to cards */
+.card {
+  min-width: var(--card-min-width, 160px);
+  min-height: var(--card-min-height, 220px);
+  padding: var(--card-padding, 1.2rem);
+  /* ...rest of card styles... */
+}
+
+/* Very IMPORTANT!! this is the new addition this comment is to be edited when css is uploaded below is the card scaling (hopefully) for the images. */
+
+.card__img {
+  width: 80px; /* default width */
+  height: auto;
+  transition: width 0.2s var(--ease);
+}
+
+@media (max-width: 900px) {
+  .card__img {
+    width: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .card__img {
+    width: 40px;
+  }
+}
+
+/* ===========================
+   Notes & recommended markup
+   ===========================
+   - To turn a card into a clickable button, add .clickable or role="button" and tabindex="0"
+     Example:
+       <div class="card clickable" role="button" tabindex="0">
+         <div class="card__title">Card title</div>
+         <div class="card__meta">Meta</div>
+         <div class="accent-line"></div>
+       </div>
+
+   - Respect keyboard users: use focus-visible styles (already provided).
+   - Add aria-pressed / aria-selected if cards are toggleable.
+   - Use prefers-reduced-motion to respect user settings (handled above).
+*/
