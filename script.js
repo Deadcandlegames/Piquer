@@ -103,7 +103,7 @@ function toTheScreen(cardGroup, sectionName) {
       let rank = card[0];
       let suit = card[1];
       let displayName = `${rank} of ${suit}`;
-      let htmlCard = `<button>
+      let htmlCard = `<button id="${card}">
         <div class="card clickable" role="button" tabindex="0">
           <img src="${cardImage}" class="card__img" alt="${displayName}">
           <div class="card__title">${displayName}</div>
@@ -114,7 +114,7 @@ function toTheScreen(cardGroup, sectionName) {
       div.innerHTML += htmlCard;
     }
   } else {
-    console.error(`Could not find element with ID: p0-${sectionName}`);
+    console.log(`Could not find element with ID: p0-${sectionName}`);
     alert("Error 301")
   }
 }
@@ -124,7 +124,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     hand.push(arrayName);
@@ -133,7 +133,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     undercards.push(arrayName);
@@ -142,7 +142,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     overcards.push(arrayName);
@@ -154,7 +154,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Hand.push(arrayName);
@@ -163,7 +163,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Undercards.push(arrayName);
@@ -172,7 +172,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Overcards.push(arrayName);
@@ -184,7 +184,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Hand.push(arrayName);
@@ -193,7 +193,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Undercards.push(arrayName);
@@ -202,7 +202,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Overcards.push(arrayName);
@@ -214,7 +214,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Hand.push(arrayName);
@@ -223,7 +223,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Undercards.push(arrayName);
@@ -232,7 +232,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Overcards.push(arrayName);
@@ -273,6 +273,11 @@ function debug() {
     default:
       alert("Error! Error code 201");
   }
+}
+
+for (let i = 1; i <= cardsDealtPlayer; i++) {
+  document.getElementById(hand[i]).addEventListener("click", playCard(hand[i], "hand"));
+  console.log("Line 279 (about) succeeded!");
 }
 
 function turn(centercard, win) {
@@ -415,17 +420,17 @@ function highestPossible(groupsOfCards, centerAmount) {
 }
 
 function playCard(card, groupOfCards) {
-    //PLAY CARD TO SCREEN
+    //PLAY CARD TO SCREEN (to the screen func mabye?)
     let cardIndex = groupOfCards.indexOf(card)
     switch(groupsOfCards) {
         case "hand":
-            hand.splice(cardIndex, 1)
+            hand.splice(cardIndex);
             break;
         case "overcards":
-            overcards.splice(cardIndex, 1)
+            overcards.splice(cardIndex);
             break;
         case "undercards":
-            undercards.splice(cardIndex, 1)
+            undercards.splice(cardIndex);
             break;
     }
 }
