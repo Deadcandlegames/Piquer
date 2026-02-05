@@ -275,6 +275,11 @@ function debug() {
   }
 }
 
+for (let i = 1; i <= cardsDealtPlayer; i++) {
+  document.getElementById(hand[i]).addEventListener("click", playCard(hand[i], "hand"));
+  console.log("Line 279 (about) succeeded!");
+}
+
 function turn(centercard, win) {
      if (currentPlayer !== 1 && win == false) {
         if (canPlay("hand", centercard, currentPlayer)) {
@@ -415,17 +420,17 @@ function highestPossible(groupsOfCards, centerAmount) {
 }
 
 function playCard(card, groupOfCards) {
-    //PLAY CARD TO SCREEN
+    //PLAY CARD TO SCREEN (to the screen func mabye?)
     let cardIndex = groupOfCards.indexOf(card)
     switch(groupsOfCards) {
         case "hand":
-            hand.splice(cardIndex, 1)
+            hand.splice(cardIndex);
             break;
         case "overcards":
-            overcards.splice(cardIndex, 1)
+            overcards.splice(cardIndex);
             break;
         case "undercards":
-            undercards.splice(cardIndex, 1)
+            undercards.splice(cardIndex);
             break;
     }
 }
