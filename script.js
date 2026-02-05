@@ -114,7 +114,7 @@ function toTheScreen(cardGroup, sectionName) {
       div.innerHTML += htmlCard;
     }
   } else {
-    console.error(`Could not find element with ID: p0-${sectionName}`);
+    console.log(`Could not find element with ID: p0-${sectionName}`);
     alert("Error 301")
   }
 }
@@ -124,7 +124,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     hand.push(arrayName);
@@ -133,7 +133,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     undercards.push(arrayName);
@@ -142,7 +142,7 @@ function dealPlayer() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     overcards.push(arrayName);
@@ -154,7 +154,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Hand.push(arrayName);
@@ -163,7 +163,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Undercards.push(arrayName);
@@ -172,7 +172,7 @@ function dealOpponent1() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent1Overcards.push(arrayName);
@@ -184,7 +184,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Hand.push(arrayName);
@@ -193,7 +193,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Undercards.push(arrayName);
@@ -202,7 +202,7 @@ function dealOpponent2() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent2Overcards.push(arrayName);
@@ -214,7 +214,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Hand.push(arrayName);
@@ -223,7 +223,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Undercards.push(arrayName);
@@ -232,7 +232,7 @@ function dealOpponent3() {
     let a = randomInRange(0, deck.length - 1);
     let arrayName = deck.splice(a, 1)[0];
     if (!arrayName) {
-      alert("Error ???");
+      alert("Error 302");
       break;
     }
     opponent3Overcards.push(arrayName);
