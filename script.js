@@ -103,12 +103,14 @@ function toTheScreen(cardGroup, sectionName) {
       let rank = card[0];
       let suit = card[1];
       let displayName = `${rank} of ${suit}`;
-      let htmlCard = `<div class="card clickable" role="button" tabindex="0">
-        <img src="${cardImage}" class="card__img" alt="${displayName}">
-        <div class="card__title">${displayName}</div>
-        <div class="card__meta">Your Card (temporary)</div>
-        <div class="accent-line"></div>
-      </div>`; //it might be card_img not card__img
+      let htmlCard = `<button id="${card}">
+        <div class="card clickable" role="button" tabindex="0">
+          <img src="${cardImage}" class="card__img" alt="${displayName}">
+          <div class="card__title">${displayName}</div>
+          <div class="card__meta">Your Card (temporary)</div>
+          <div class="accent-line"></div>
+        </div>
+      </button>`
       div.innerHTML += htmlCard;
     }
   } else {
