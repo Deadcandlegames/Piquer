@@ -436,7 +436,8 @@ function playCard(card, groupOfCards) {
 }
 
 function cardNameToImage(cardName) {
-const key = `${cardName[0]}-${cardName[1]}`;
+let key = `${cardName[0]}-${cardName[1]}`;
+console.log(key)
 const cardImages = {
   // Spades
   "1-Spades": "images/1S.png",
